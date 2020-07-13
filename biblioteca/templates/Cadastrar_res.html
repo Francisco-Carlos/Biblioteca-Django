@@ -1,0 +1,27 @@
+{% extends 'page-model.html' %}
+{% block content %}
+    <h1>Biblioteca</h1>
+    <p> Fazer um reservar</p>
+    <form enctype="multipart/form-data" action="submit" method="POST">{%csrf_token%}
+        <input type="number" name="reserva_id" value="{{reserva.id}}" hidden>
+        <div class="form-group">
+            <label for="nome"> Nome </label>
+            <input class="form-control" type="text" name="nome" value="{{reserva.Nome}}">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="livro" type="text" value="{{reserva.Nome_liv}}">
+        </div>
+        <div class="form-group">
+            <label for="data"> Devolver</label>
+            <input class="form-control" name="data" type="date" value="{{reserva.Devolver}}">
+        </div>
+        <button type="submit" class="btn btn-success">
+            {% if editora %}
+                alterar
+            {% else %}
+                Cadastar
+            {% endif%}
+        </button>
+
+    </form>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'page-model.html' %}
+{% block content %}
+
+<div class="modal fade" id="Excluir">
+    <div class="modal-dialog modal-dialogcentered">
+        <div class="modal-content">
+            <div class="modal-hearder">
+                <h4 class="modal-title">Tem certeza que quer excluir</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body text-right">
+                <a href="/heart/deletar/{{lista.id}}">
+                    <button type="button" class="btn btn-danger">Excluir</button>
+                </a>
+                <button type="button" class="btn btn-success" data-dismiss="modal"> cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <br>
+    <h1 style="text-align:center;">Biblioteca</h1>
+    <p style="text-align:center;">detalhes</p>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <div>
+                <br>
+                <img  style="border-radius:8px; width:200px;" src="{{lista.Imag.url}}">
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <br>
+            <p><b>Id: </b> {{lista.Id_Li}}</p>
+            <p><b>Titulo:</b> {{lista.Nome}}</p>
+            <p><b>Editora: </b> {{lista.Editora}}</p>
+            <p><b>Redumo: </b> {{lista.Resumo}}</p>
+        </div>
+    </div>
+    {% if resquest.user == User %}
+        <a class="btn btn-primary" href="/heart/editar/?id={{lista.id}}"> Editar </a>
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#Excluir">Deletar</button>
+    {% endif %}
+    <a class="btn btn-success" href="/heart/livros/">Voltar</a>
+
+</div>
+{% endblock%}

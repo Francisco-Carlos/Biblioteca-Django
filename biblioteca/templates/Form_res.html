@@ -1,0 +1,15 @@
+{% extends 'page-model.html' %}
+{% block content %}
+<div class="container">
+    <h1 style="text-align:center;">Biblioteca</h1>
+    <p style="text-aling:center;"> Cadastrar reserva</p>
+    <div class="form-group">
+        <form method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button class="btn-btn-success"> cadastrar</button>
+        </form>
+    </div>
+      <!--  {{form.as_p}}-->
+</div>
+{% endblock %}

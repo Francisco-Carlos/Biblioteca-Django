@@ -1,0 +1,32 @@
+{% extends "page-model.html"%}
+{% block content%}
+<div class="conteiner" style="margin-left:80px;">
+    <h1 style="text-align:center;"> Biblioteca</h1>
+    <p style="text-align:center;"><strong>Cadastrar um <a href="/heart/cadastrar_edi" >Editora </a> </strong></p>
+    <table class="table table-bordered" style="width:1200px;">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Telefone</th>
+                <th>Site</th>
+                <th>funçoes</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for lis in editoras%}
+                <tr>
+                    <td>{{lis.Nome}}</td>
+                    <td>{{lis.Telefone}}</td>
+                    <td>{{lis.Site}}</td>
+                    <td>
+                        <a href="/heart/cadastrar_edi/?id={{lis.id}} "><i style="font-size:24px;color:green" class="fas">&#xf0c7</i></a>
+                        <a href="/heart/detalhes_edi/{{lis.id}}"><i style="font-size:24px;" class="fas">&#xf037</i></a>
+                        <a href="#"><i style="font-size:24px;color:red;" class="fas">&#xf714</i></a>
+                    </td>
+                </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock%}

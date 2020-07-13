@@ -1,0 +1,32 @@
+{% extends 'page-model.html' %}
+{% block content %}
+    <div class="container">
+        <br>
+        <h1 style="text-align:center;">Usuario Logado</h1>
+        <p style="text-align:center;"> aqui voce so vera seu nome e senha podendo sair da conta ou deletar ela</p>
+        <table class="table table-borderd">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th> Email</th>
+                    <th> funçoes</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for us in users %}
+                    <tr>
+                        {% if request.user == us %}
+                            <td>{{us.username}}</td>
+                            <td>{{us.email}}</td>
+                            <td>
+                                <a href="/heart/reserva/"><i style="font-size:24px;color:green" class="fas">&#xf0c7</i></a>
+                                <a href="/heart/logout/" ><i style="font-size:24px;" class="fa">&#xf00d</i></a>
+                                <a href="/heart/deletar_user/{{us.id}}"><i style="font-size:24px;color:red;" class="fas">&#xf714</i></a>
+                            </td>
+                        {% endif %}
+                    </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

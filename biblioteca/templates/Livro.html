@@ -1,0 +1,33 @@
+{% extends "page-model.html"%}
+{% block content%}
+<div class="conteiner" style="margin-left:80px;">
+    <h1 style="text-align:center;"> Biblioteca</h1>
+    <p style="text-align:center;"><strong>Cadastrar um <a href="/heart/cadastrar_liv/" >livro </a> </strong></p>
+    <table class="table table-bordered" style="width:1200px;">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th> Autor</th>
+                <th>Observaçao</th>
+                <th>Imagem</th>
+                <th>funçoes</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for lis in livros %}
+                <tr>
+                    <td>{{lis.Nome}}</td>
+                    <td>{{lis.Autor}}</td>
+                    <td>{{lis.Observacao}}</td>
+                    <td><img src="{{lis.Imag.url}}" style="width:60px"></td>
+                    <td>
+                       <a href="/heart/editar/?id={{lis.id}}"><i style="font-size:24px;color:green" class="fas">&#xf0c7</i></a>
+                       <a href="/heart/detalhes/{{lis.id}}"><i style="font-size:24px;" class="fas">&#xf037</i></a>
+                       <a href="#"><i style="font-size:24px;color:red;" class="fas">&#xf714</i></a>
+                    </td>
+                </tr>
+            {% endfor%}
+        </tbody>
+    </table>
+</div>
+{%endblock%}

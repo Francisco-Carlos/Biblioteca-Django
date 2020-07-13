@@ -1,0 +1,28 @@
+{% extends 'page-model.html'%}
+{% block content%}
+    <h1 style="text-align:center"> Biblioteca </h1>
+    <p style="text-align:center;"> <strong>Cadastrar <a href="/heart/cadastrar_res"> Reserva</a></strong></p>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Nome do livro</th>
+                <th>Devoluçao</th>
+                <th>funçoes</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for res in reservas %}
+            <tr>
+                <td>{{res.Nome}}</td>
+                <td>{{res.Nome_liv}}</td>
+                <td>{{res.Devolver}}</td>
+                <td>
+                    <a href="/heart/editar_res/?id={{res.id}}"><i style="font-size:24px;color:green" class="fas">&#xf0c7</i></a>
+                    <a href="/heart/deletar_res/{{res.id}}"><i style="font-size:24px;color:red;" class="fas">&#xf714</i></a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "page-model.html" %}
+{% block content %}
+<h1> Biblioteca</h1>
+<p style="text-aling:center;"> Cadastro de livro</p>
+<form enctype="multipart/form-data" action="submit" method="POST">{% csrf_token %}
+    <input type="number" class="form-control" name="livro_id" value="{{lista.id}}" hidden>
+    <div class="container">
+
+    <div class="form-group">
+         <label for="titulo">Titulo</label>
+         <input class="form-control" name="titulo" type="text" value="{{lista.Nome}}">
+    </div>
+    <div class="form-group">
+         <label for="autor">Autor</label>
+         <input class="form-control" name="autor" type="text" value="{{lista.Autor}}">
+    </div>
+    <div class="form-group">
+         <label for="observacao">Observaçao</label>
+         <input class="form-control" name="observacao" type="text" value="{{lista.Observacao}}">
+    </div>
+    <div class="form-group">
+        <label for="resumo"> Resumo</label>
+        <br>
+        <textarea class="form=control" rows="20"  name="resumo">{{lista.Resumo}}</textarea>
+    </div>
+    <div class="form-goup">
+         <a href="/media/{{lista.Imag}}" target="_blank">foto atual</a>
+         <input type="file" class="form-control-file border" name="image" accept="image/*">
+    </div>
+         <button type="submit" class="btn btn-success">
+            {% if lista %}
+                alterar
+            {% else %}
+                Cadastar
+            {% endif%}
+        </button>
+         <a class="btn btn-primary" href="/heart/index">Inicio</a>
+    </div>
+</form>
+{% endblock%}

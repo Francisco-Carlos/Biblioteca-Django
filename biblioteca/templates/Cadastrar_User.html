@@ -1,0 +1,13 @@
+{% extends 'page-model.html' %}
+{% block content %}
+    <div class="container">
+        <div class="form-group">
+            <form enctype="multipart/form-data" method="POST">
+                {% csrf_token %}
+                {{cads.as_p}}
+                <button class="btn btn-success"> Enviar</button>
+                <a class="btn btn-primary" href="/"> Voltar</a>
+            </form>
+        </div>
+    </div>
+{% endblock %}

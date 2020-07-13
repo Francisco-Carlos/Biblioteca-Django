@@ -1,0 +1,16 @@
+{% extends 'page-model.html' %}
+{% block content %}
+    <div class="container" style="margin-left:150px;">
+
+        <h1 style="margin-top:100px;"> Detalhes da Editora</h1>
+        <p><b>Nome: </b> {{editora.Nome}}</p>
+        <p><b>Endereco: </b>{{editora.Edereco}}</p>
+        <p><b>Telefone: </b>{{editora.Telefone}}</p>
+        <p><b>Site: </b> <a>{{editora.Site}}</a> </p>
+
+        <a href="/heart/cadastrar_edi/?id={{editora.id}}" class="btn btn-primary">Editar</a>
+        <a href="/heart/deletar_edi/{{editora.id}}" class="btn btn-danger"> Exluir</a>
+        <a href="/heart/livros/" class="btn btn-info" >Ver livros</a>
+        <a href="/heart/editora/" class="btn btn-success">Voltar</a>
+    </div>
+{% endblock%}

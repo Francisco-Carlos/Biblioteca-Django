@@ -1,0 +1,16 @@
+{% extends 'page-model.html' %}
+{% block content%}
+<div class="conteiner" >
+    <h1 style="text-align:center;">Biblioteca</h1>
+    <p style="text-align:center;">Cadastrar livro</p>
+    <br>
+    <div class="form-group">
+        <form  enctype="multipart/form-data" method="POST" style="width:600px;margin-left:400px;">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button class="btn btn-success">Salvar</button>
+            <a class="btn btn-primary" href="/heart/livros">Voltar</a>
+        </form>
+    </div>
+</div>
+{% endblock%}
